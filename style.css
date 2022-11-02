@@ -1,0 +1,43 @@
+section .favourite-albums {
+  background-color: rgb(118, 117, 117);
+}
+.card {
+  background-color: rgb(246, 246, 246);
+}
+
+.card-img-top {
+  box-shadow: 3px 7px 7px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
+}
+
+.color-red {
+  color: rgb(106, 34, 34);
+}
+
+.favourite-albums div.circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: rgb(106, 34, 34);
+  display: grid;
+  place-content: center;
+  animation: grow 1s infinite;
+  cursor: pointer;
+}
+.favourite-albums div.circle > span {
+  color: #eee;
+  font-size: 50px;
+}
+
+@keyframes grow {
+  from {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.7);
+  }
+}
