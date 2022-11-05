@@ -1,21 +1,28 @@
 :root {
-  --color-dark-gray: #2a2a2a;
+  --color-dark-gray: #2f2f2f;
   --color-light-gray: #777777;
-  --color-lighter-gray: #b7b6b6;
+  --color-lighter-gray: #d0cfcf;
   --color-orange: #f58840;
+  --color-orange-light: #f6bb94;
   --color-red: #b85252;
   --color-cream: #eadede;
   --color-white: white;
 }
 body {
-  background-color: var(--color-dark-gray);
+  background-color: black;
 }
 .navbar {
   background-color: black;
+  width: 100%;
+  z-index: 100;
+}
+.navbar-toggler-icon {
+  height: 1.2em;
+  width: 1.2em;
 }
 
 .navbar .navbar-brand {
-  color: var(--color-white);
+  color: var(--color-orange);
   font-weight: 700;
 }
 
@@ -23,9 +30,12 @@ body {
   color: var(--color-lighter-gray);
 }
 
+.navbar-dark .navbar-nav .nav-item:hover .nav-link {
+  color: var(--color-white);
+}
+
 .navbar-dark .navbar-nav .active > .nav-link {
-  font-weight: 600;
-  color: var(--color-orange);
+  color: var(--color-white);
 }
 
 .navbar-dark .navbar-nav .active > .selected-circle {
@@ -40,26 +50,71 @@ body {
   margin-inline: auto;
 }
 
-#home {
-  width: 100%;
-  background-image: no-repeat;
+#back-to-top {
+  color: var(--color-orange);
+  font-size: 1.8rem;
+  animation: backTopAnimation 2s ease alternate infinite;
+  outline: none;
+  border: none;
+  background: transparent;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 999;
 }
-.jumbatron {
-  background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
 
-  color: rgb(208, 207, 207);
+@keyframes backTopAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.jumbotron {
+  margin: 0;
+  background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  color: var(--color-lighter-gray);
   height: calc(100vh - 56px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  animation: fadeInAnimation 4s;
+  animation-fill-mode: forwards;
+  border-radius: 0;
 }
 
-.header-hr {
-  border-bottom: 1px solid var(--color-orange);
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-section .favourite-albums {
-  background-color: rgb(118, 117, 117);
+.jumbotron h1 {
+  color: var(--color-white);
+}
+.heading-line {
+  position: absolute;
+  height: 3px;
+  width: 40px;
+  background-color: var(--color-orange);
+  top: 0;
+  right: 0;
+}
+
+#favourite-albums,
+#album-reviews {
+  background-color: var(--color-lighter-gray);
+}
+.section-heading {
+  color: var(--color-dark-gray);
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 .card {
   background-color: rgb(246, 246, 246);
