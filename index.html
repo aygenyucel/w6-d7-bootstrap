@@ -15,48 +15,67 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">LOGO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#favourite-albums">Favourite Albums</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#album-reviews">Album Reviews</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Worst Albums</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Top Band</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tapestry</a>
-            </li>
-          </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active position-relative">
+                <a class="nav-link" href="#"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+                <div class="selected-circle d-none d-lg-block"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#favourite-albums"
+                  >Favourite Albums</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#album-reviews">Album Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Worst Albums</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Top Band</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tapestry</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
     <section id="home">
       <div class="jumbatron">
+        <div
+          class="container h-100 d-flex flex-column justify-content-end pb-4"
+        >
+          <h1>Lorem, ipsum dolor.</h1>
+          <p class="text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            dolore sequi quos iure incidunt quibusdam nulla natus in facilis,
+            nisi ea commodi culpa quaerat omnis fugiat architecto id facere
+            beatae?
+          </p>
+          <a class="text-right" href="#" style="color: var(--color-orange)"
+            >Discover ></a
+          >
+        </div>
         <!-- <p class="lead">
           <a
             class="btn btn-primary btn-lg bg-transparent"
@@ -69,8 +88,9 @@
     </section>
 
     <section id="favourite-albums">
-      <div class="text-center h3 my-5">My Favourite Albums</div>
+      <!-- <div class="header-hr"></div> -->
       <div class="container">
+        <div class="header text-right h3 my-5">Favourite Albums</div>
         <div class="row">
           <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card my-3">
