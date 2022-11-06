@@ -8,11 +8,16 @@
   --color-cream: #eadede;
   --color-white: white;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: black;
 }
 .navbar {
   background-color: black;
+  background: rgb(0, 0, 0, 0.7);
   width: 100%;
   z-index: 100;
 }
@@ -21,13 +26,16 @@ body {
   width: 1.2em;
 }
 
-.navbar .navbar-brand {
+.navbar .logo {
   color: var(--color-orange);
   font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .navbar-dark .navbar-nav .nav-link {
   color: var(--color-lighter-gray);
+  font-size: 0.9rem;
+  margin-inline: 5px;
 }
 
 .navbar-dark .navbar-nav .nav-item:hover .nav-link {
@@ -73,16 +81,31 @@ body {
   }
 }
 
-.jumbotron {
-  margin: 0;
+#home {
   background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  color: var(--color-lighter-gray);
-  height: calc(100vh - 56px);
+
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   animation: fadeInAnimation 4s;
   animation-fill-mode: forwards;
+  border-radius: 0;
+}
+
+.jumbotron {
+  margin: 0;
+  background: transparent;
+  color: var(--color-lighter-gray);
+  height: calc(100vh - 53.59px);
+  /* background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  color: var(--color-lighter-gray);
+  height: calc(100vh - 53.59px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: fadeInAnimation 4s;
+  animation-fill-mode: forwards; */
   border-radius: 0;
 }
 
@@ -109,50 +132,133 @@ body {
 
 #favourite-albums,
 #album-reviews {
-  background-color: var(--color-lighter-gray);
+  background-color: var(--color-dark-gray);
 }
 .section-heading {
   color: var(--color-dark-gray);
   font-weight: 500;
   font-size: 1.4rem;
 }
-.card {
-  background-color: rgb(246, 246, 246);
+
+.div-img {
+  padding: 20px 10px;
 }
 
+.card {
+  background: rgba(244, 244, 244, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.129);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  color: black;
+  border-radius: 50px 50px 0px 0px;
+  padding-top: 30px;
+  transition: all 1.5s ease;
+  border-bottom: 0.5px solid var(--color-orange);
+}
 .card-img-top {
+  transition: all 1.5s;
+}
+
+.card-body-top {
+  padding: 0;
+  font-size: 0.8rem;
+  transition: all 1.5s;
+}
+
+.card-body-top p {
+  transition: all 1.5s;
+}
+
+/* .card-img-top {
   box-shadow: 3px 7px 7px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s;
 }
 
 .card-img-top:hover {
   transform: scale(1.1);
+} */
+
+.card-body {
+  margin: 0;
 }
 
-.color-red {
-  color: rgb(106, 34, 34);
+.card-body-bottom {
+  opacity: 0;
+  margin: 0;
+  transition: all 1.5s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
 }
 
-.favourite-albums div.circle {
-  height: 50px;
-  width: 50px;
+.badge-genre {
+  position: absolute;
+  background-color: var(--color-orange);
+  top: 0;
+  left: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  width: 40%;
+  padding: 5px 7px;
+  border-bottom-right-radius: 20px;
+  opacity: 1;
+  transition: 1s;
+}
+
+.album-year {
+  position: absolute;
+  background-color: var(--color-orange);
+  right: 0;
+  bottom: 0;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 3px 10px;
+  border-top-left-radius: 20px;
+  width: 20%;
+  opacity: 0;
+  transition: 1s;
+}
+
+.card:hover {
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 70px;
+  border-bottom-width: 10px;
+}
+
+.card:hover .badge-genre {
+  opacity: 0;
+}
+
+.card:hover .album-year {
+  opacity: 1;
+}
+
+.card:hover .card-body-bottom {
+  opacity: 1;
+}
+
+.card:hover .card-body-top p {
+  color: var(--color-orange);
+}
+
+.card-body-bottom .play-button {
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background-color: rgb(106, 34, 34);
+  background-color: black;
+  border: none;
+  outline: none;
   display: grid;
   place-content: center;
-  animation: grow 1s infinite;
   cursor: pointer;
+  color: var(--color-orange);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 .favourite-albums div.circle > span {
   color: #eee;
   font-size: 50px;
-}
-
-@keyframes grow {
-  from {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  }
-  to {
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.7);
-  }
 }
