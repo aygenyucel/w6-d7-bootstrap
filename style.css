@@ -8,6 +8,7 @@
   --color-cream: #eadede;
   --color-white: white;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -15,12 +16,14 @@ html {
 body {
   background-color: black;
 }
+
 .navbar {
   background-color: black;
   background: rgb(0, 0, 0, 0.7);
   width: 100%;
   z-index: 100;
 }
+
 .navbar-toggler-icon {
   height: 1.2em;
   width: 1.2em;
@@ -75,7 +78,6 @@ body {
   0% {
     transform: translateY(0px);
   }
-
   100% {
     transform: translateY(10px);
   }
@@ -83,7 +85,6 @@ body {
 
 #home {
   background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -98,14 +99,6 @@ body {
   background: transparent;
   color: var(--color-lighter-gray);
   height: calc(100vh - 53.59px);
-  /* background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  color: var(--color-lighter-gray);
-  height: calc(100vh - 53.59px);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  animation: fadeInAnimation 4s;
-  animation-fill-mode: forwards; */
   border-radius: 0;
 }
 
@@ -131,7 +124,7 @@ body {
 }
 
 #favourite-albums,
-#album-reviews {
+#album-review {
   background-color: var(--color-dark-gray);
 }
 .section-heading {
@@ -153,6 +146,7 @@ body {
   padding-top: 30px;
   transition: all 1.5s ease;
   border-bottom: 0.5px solid var(--color-orange);
+  z-index: 999;
 }
 .card-img-top {
   transition: all 1.5s;
@@ -167,15 +161,6 @@ body {
 .card-body-top p {
   transition: all 1.5s;
 }
-
-/* .card-img-top {
-  box-shadow: 3px 7px 7px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s;
-}
-
-.card-img-top:hover {
-  transform: scale(1.1);
-} */
 
 .card-body {
   margin: 0;
@@ -195,9 +180,9 @@ body {
 .album-genre-badge {
   top: 0;
   left: 0;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   width: 40%;
-  padding: 5px 7px;
+  padding: 3px 7px;
   border-bottom-right-radius: 20px;
   opacity: 1;
   transition: 1s;
@@ -213,7 +198,7 @@ body {
   bottom: 0;
   font-size: 0.6rem;
   text-align: center;
-  padding: 3px 10px;
+  padding: 3px 7px;
   border-top-left-radius: 20px;
   width: 20%;
   opacity: 0;
@@ -247,6 +232,10 @@ body {
   color: var(--color-orange);
 }
 
+.card:hover .card-img-top {
+  filter: grayscale(0%);
+}
+
 .card-body-bottom .play-button {
   height: 40px;
   width: 40px;
@@ -260,7 +249,100 @@ body {
   color: var(--color-orange);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
-.favourite-albums div.circle > span {
-  color: #eee;
-  font-size: 50px;
+
+.review-img {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.review-img img {
+  width: 100%;
+  z-index: 1999;
+  filter: grayscale(0%);
+  max-width: 500px;
+  max-height: 500px;
+}
+
+img {
+  filter: grayscale(100%);
+}
+
+.review-img-badge {
+  writing-mode: vertical-rl;
+  position: absolute;
+  font-weight: 600;
+  background: rgba(245, 136, 64, 0.5);
+  top: 0;
+  right: 5%;
+  /* right: 50%; */
+  left: 100%;
+  margin: auto;
+
+  bottom: 0;
+  text-align: center;
+  height: 100%;
+  width: fit-content;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: all 2s;
+  z-index: 999;
+  animation: albumReviewAnimationReverse 2s reverse forwards;
+}
+
+#album-review:hover .review-img-badge {
+  /* transform: rotateZ(-90deg);
+  left: 0;
+  right: 0; */
+  animation-name: albumReviewAnimation;
+  animation-duration: 2s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes albumReviewAnimation {
+  0% {
+    right: 5%;
+    left: 100%;
+  }
+  50% {
+    right: 30%;
+    left: 75%;
+  }
+  100% {
+    right: 50%;
+    left: 50%;
+
+    transform: rotateZ(-90deg);
+  }
+}
+
+@keyframes albumReviewAnimationReverse {
+  0% {
+    right: 5%;
+    left: 100%;
+  }
+  50% {
+    right: 30%;
+    left: 75%;
+  }
+  100% {
+    right: 50%;
+    left: 50%;
+    transform: rotateZ(-90deg);
+  }
+}
+
+.review-album-info .row .col-3,
+.review-album-info + div {
+  font-weight: 600;
+}
+
+.review-album-info .row .col-9 {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.review-album-info {
+  color: var(--color-cream);
 }
